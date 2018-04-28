@@ -1,0 +1,219 @@
+<?php
+
+/**
+
+ * Magento
+
+ *
+
+ * NOTICE OF LICENSE
+
+ *
+
+ * This source file is subject to the Academic Free License (AFL 3.0)
+
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+
+ * It is also available through the world-wide-web at this URL:
+
+ * http://opensource.org/licenses/afl-3.0.php
+
+ * If you did not receive a copy of the license and are unable to
+
+ * obtain it through the world-wide-web, please send an email
+
+ * to license@magento.com so we can send you a copy immediately.
+
+ *
+
+ * DISCLAIMER
+
+ *
+
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+
+ * versions in the future. If you wish to customize Magento for your
+
+ * needs please refer to http://www.magento.com for more information.
+
+ *
+
+ * @category    design
+
+ * @package     rwd_default
+
+ * @copyright   Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
+
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+
+ */
+
+?>
+
+<div class="footer">
+<div class="atelier-newsletter">
+	<div class="newsletter-content">
+		<div class="newsletter-close"><i class="fas fa-times"></i></div>
+		<h2><?php echo __('Ottieni il 5% di sconto e scopri i consigli degli esperti.') ?></h2>
+	    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
+	        <div class="block-content">
+	            <div class="input-box">
+	               <input placeholder="<?php echo __('Inserisci e-mail') ?>" type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="newsletter" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Sign up for our newsletter')) ?>" class="input-text required-entry validate-email" />
+	            </div>
+
+				<div class="poly">
+			        <p class="policy">
+			        	<span class="spanx">Ho letto e accetto l’<a href="<?php echo Mage::getBaseUrl() ?>privacy"><ins>informativa sulla privacy policy</ins></a></span>
+			        	<input class="required-entry" name="policy" type="checkbox">
+			        	
+		        	</p>
+
+				</div>
+	            <div class="actions">
+	                <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Subscribe')) ?>" class="button"><span><?php echo __('Ricevi lo sconto') ?></span></button>
+	            </div>
+	        </div>
+	    </form>
+	    <script type="text/javascript">
+	    //<![CDATA[
+	        var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+	    //]]>
+	    </script>
+	</div>
+</div>
+
+
+
+
+	<div class="footer-container">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_links')->toHtml(); ?>
+		<div class="copy-right">
+			<address class="copyright"><a href="https://www.up3up.it/" target="_blank"><?php echo $this->getCopyright() ?></a></address>
+		</div>
+	</div>
+</div>
+<script>
+
+	jQuery(window).scroll(function(){
+
+		var sticky = jQuery('.page-header'),
+
+		scroll = jQuery(window).scrollTop();
+
+		if(jQuery(window).width() > 767){
+
+			if (scroll >= 25){ 
+
+				sticky.addClass('fixed');
+
+				jQuery('body').addClass('header-fixed');
+
+			}
+
+			else {
+
+				sticky.removeClass('fixed');
+
+				jQuery('body').removeClass('header-fixed');
+
+			}
+
+		}
+
+	});
+
+</script>
+
+<script type="text/javascript">
+(function(){
+    var wait = 5; // wait X second then run animation
+    function createCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+    function openAnimation(){
+        jQuery('.atelier-newsletter').addClass('is-visible');
+    }
+    jQuery(document).ready(function($){
+        jQuery('.newsletter-close i').on('click', function(event){
+            jQuery('.atelier-newsletter').removeClass('is-visible').delay(1000).css("display","none");
+            createCookie('newsletter','y',1);
+        });
+
+        jQuery('#newsletterBtn').on('click', function(event){
+            createCookie('newsletter','y',365);
+        });
+
+        if(readCookie('newsletter')==null){
+            setTimeout(function(){ openAnimation(); }, wait*1000);
+        }else{
+            jQuery('.atelier-newsletter').css("display","none");
+        }
+    });
+})();
+</script>
+
+
+
+<script type="text/javascript">
+jQuery.noConflict();
+(function($) {
+    $(function() {
+		$('.footer-banner.owl-carousel').owlCarousel({
+			items: 1,
+			autoplay:true,
+			nav: true,
+			dots: true,
+			loop: true,
+			lazyLoad: true,
+			margin: 10
+		});
+	    var owl = $(".footer-banner.owl-carousel");
+	    // add animate.css class(es) to the elements to be animated
+	    function setAnimation(_elem, _InOut) {
+	        // Store all animationend event name in a string.
+	        // cf animate.css documentation
+	        var animationEndEvent =
+	            "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+
+	        _elem.each(function() {
+	            var $elem = $(this);
+	            var $animationType = "animated " + $elem.data("animation-" + _InOut);
+
+	        $elem.addClass($animationType).one(animationEndEvent, function() {
+	            $elem.removeClass($animationType); // remove animate.css Class at the end of the animations
+	            });
+	        });
+	    }
+
+	    // Fired before current slide change
+	    owl.on("change.owl.carousel", function(event) {
+	        var $currentItem = $(".owl-item", owl).eq(event.item.index);
+	        var $elemsToanim = $currentItem.find("[data-animation-out]");
+	        setAnimation($elemsToanim, "out");
+	    });
+
+	    // Fired after current slide has been changed
+	    owl.on("changed.owl.carousel", function(event) {
+	        var $currentItem = $(".owl-item", owl).eq(event.item.index);
+	        var $elemsToanim = $currentItem.find("[data-animation-in]");
+	        setAnimation($elemsToanim, "in");
+	    });
+    });
+})(jQuery)
+</script>
