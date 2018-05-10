@@ -81,47 +81,40 @@
 	    </script>
 	</div>
 </div>
-
-
-
-
 	<div class="footer-container">
 		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_links')->toHtml(); ?>
-		<div class="copy-right">
-			<address class="copyright"><a href="https://www.up3up.it/" target="_blank"><?php echo $this->getCopyright() ?></a></address>
+		<div class="copy-right metodi">
+			<a href="javascript:void(0)"><?php echo __('Metodi di pagamento') ?></a>
+			<ul>
+				<li><a href="javascript:void(0)"><img src="<?php echo $this->getSkinUrl('images/metodi1.jpg'); ?>" alt=""/></a></li>
+				<li><a href="javascript:void(0)"><img src="<?php echo $this->getSkinUrl('images/metodi2.jpg'); ?>" alt=""/></a></li>
+				<li><a href="javascript:void(0)"><img src="<?php echo $this->getSkinUrl('images/metodi3.jpg'); ?>" alt=""/></a></li>
+				<li><a href="javascript:void(0)"><img src="<?php echo $this->getSkinUrl('images/metodi4.jpg'); ?>" alt=""/></a></li>
+				<li><a href="javascript:void(0)"><img src="<?php echo $this->getSkinUrl('images/metodi5.jpg'); ?>" alt=""/></a></li>
+			</ul>
 		</div>
 	</div>
 </div>
+<a href="" class="scroll-to-top" style="bottom: 25px;"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
+<div class="copy_right_bottom">
+	<address class="copyright"><a href="https://www.up3up.it/" target="_blank"><?php echo $this->getCopyright() ?></a></address>
+</div>
 <script>
-
 	jQuery(window).scroll(function(){
-
 		var sticky = jQuery('.page-header'),
-
 		scroll = jQuery(window).scrollTop();
-
-		if(jQuery(window).width() > 767){
-
-			if (scroll >= 25){ 
-
+			if (scroll >= 45){ 
 				sticky.addClass('fixed');
-
+		        sticky.addClass('fadeInDown');
+        		sticky.addClass('animated'); 
 				jQuery('body').addClass('header-fixed');
-
 			}
-
 			else {
-
 				sticky.removeClass('fixed');
-
 				jQuery('body').removeClass('header-fixed');
-
+        		sticky.removeClass('fadeInDown');
 			}
-
-		}
-
 	});
-
 </script>
 
 <script type="text/javascript">
@@ -170,7 +163,7 @@
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 jQuery.noConflict();
 (function($) {
     $(function() {
@@ -216,4 +209,186 @@ jQuery.noConflict();
 	    });
     });
 })(jQuery)
+</script> -->
+<script>
+
+    jQuery('.view_click_qty').on('click', function(){
+        jQuery(this).next().slideToggle();
+    });
+    jQuery('.click-qty').on('click', function(){
+        jQuery(this).toggleClass('active');
+        jQuery(this).next().slideToggle('active');
+    });
+</script>
+
+
+<script type="text/javascript">
+jQuery.noConflict();
+(function($) {
+    $(function() {
+		$('.home-slider.owl-carousel').owlCarousel({
+			items: 1,
+			autoplay:true,
+			nav: true,
+			dots: true,
+			loop: true,
+			lazyLoad: true,
+			animateIn: "fadeInLeft",
+			margin: 10
+		});
+	    var owl = $(".home-slider.owl-carousel");
+	    // add animate.css class(es) to the elements to be animated
+	    function setAnimation(_elem, _InOut) {
+	        // Store all animationend event name in a string.
+	        // cf animate.css documentation
+	        var animationEndEvent =
+	            "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+
+	        _elem.each(function() {
+	            var $elem = $(this);
+	            var $animationType = "animated " + $elem.data("animation-" + _InOut);
+
+	        $elem.addClass($animationType).one(animationEndEvent, function() {
+	            $elem.removeClass($animationType); // remove animate.css Class at the end of the animations
+	            });
+	        });
+	    }
+
+	    // Fired before current slide change
+	    owl.on("change.owl.carousel", function(event) {
+	        var $currentItem = $(".owl-item", owl).eq(event.item.index);
+	        var $elemsToanim = $currentItem.find("[data-animation-out]");
+	        setAnimation($elemsToanim, "out");
+	    });
+
+	    // Fired after current slide has been changed
+	    owl.on("changed.owl.carousel", function(event) {
+	        var $currentItem = $(".owl-item", owl).eq(event.item.index);
+	        var $elemsToanim = $currentItem.find("[data-animation-in]");
+	        setAnimation($elemsToanim, "in");
+	    });
+    });
+	//CSS3 Animate-it
+	$('.animatedParent').appear();
+	$('.animatedClick').click(function(){
+	  var target = $(this).attr('data-target');
+
+	  
+	  if($(this).attr('data-sequence') != undefined){
+	    var firstId = $("."+target+":first").attr('data-id');
+	    var lastId = $("."+target+":last").attr('data-id');
+	    var number = firstId;
+
+	    //Add or remove the class
+	    if($("."+target+"[data-id="+ number +"]").hasClass('go')){
+	      $("."+target+"[data-id="+ number +"]").addClass('goAway');
+	      $("."+target+"[data-id="+ number +"]").removeClass('go');
+	    }else{
+	      $("."+target+"[data-id="+ number +"]").addClass('go');
+	      $("."+target+"[data-id="+ number +"]").removeClass('goAway');
+	    }
+	    number ++;
+	    delay = Number($(this).attr('data-sequence'));
+	    $.doTimeout(delay, function(){
+	      console.log(lastId);
+	      
+	      //Add or remove the class
+	      if($("."+target+"[data-id="+ number +"]").hasClass('go')){
+	        $("."+target+"[data-id="+ number +"]").addClass('goAway');
+	        $("."+target+"[data-id="+ number +"]").removeClass('go');
+	      }else{
+	        $("."+target+"[data-id="+ number +"]").addClass('go');
+	        $("."+target+"[data-id="+ number +"]").removeClass('goAway');
+	      }
+
+	      //increment
+	      ++number;
+
+	      //continute looping till reached last ID
+	      if(number <= lastId){return true;}
+	    });
+	  }else{
+	    if($('.'+target).hasClass('go')){
+	      $('.'+target).addClass('goAway');
+	      $('.'+target).removeClass('go');
+	    }else{
+	      $('.'+target).addClass('go');
+	      $('.'+target).removeClass('goAway');
+	    }
+	  } 
+	});
+
+	$(document.body).on('appear', '.animatedParent', function(e, $affected){
+	  var ele = $(this).find('.animated');
+	  var parent = $(this);
+	  
+
+	  if(parent.attr('data-sequence') != undefined){
+	    
+	    var firstId = $(this).find('.animated:first').attr('data-id');
+	    var number = firstId;
+	    var lastId = $(this).find('.animated:last').attr('data-id');
+
+	    $(parent).find(".animated[data-id="+ number +"]").addClass('go');
+	    number ++;
+	    delay = Number(parent.attr('data-sequence'));
+
+	    $.doTimeout(delay, function(){
+	      $(parent).find(".animated[data-id="+ number +"]").addClass('go');
+	      ++number;
+	      if(number <= lastId){return true;}
+	    });
+	  }else{
+	    ele.addClass('go');
+	  }
+	  
+	});
+
+	 $(document.body).on('disappear', '.animatedParent', function(e, $affected) {
+	  if(!$(this).hasClass('animateOnce')){
+	    $(this).find('.animated').removeClass('go');
+	   }
+	 });
+
+	 $(window).on('load',function(){
+	  $.force_appear();
+	 });
+})(jQuery)
+</script>
+<script type="text/javascript">
+	jQuery(window).scroll(function(){
+		if (jQuery(this).scrollTop() > 1) {
+			jQuery('.scroll-to-top').css({bottom:"25px"});
+		} else {
+			jQuery('.scroll-to-top').css({bottom:"-45px"});
+		}
+	});
+
+	jQuery('.scroll-to-top').click(function(){
+		jQuery('html, body').animate({scrollTop: '0px'}, 800);
+		return false;
+	});
+
+    jQuery('.ptext .scroll').click(function() {
+        jQuery('html, body').animate({
+            scrollTop: jQuery('.pimg1').offset().top
+        }, 1000);
+    });
+</script>
+<script>
+var myVideo = document.getElementById("myvideo"); 
+
+function playPause() { 
+    if (myVideo.paused) 
+        myVideo.play(); 
+    else 
+        myVideo.pause(); 
+}
+document.getElementById('myvideo').addEventListener('loadedmetadata', function() {
+  this.currentTime = 1;
+}, false);
+jQuery('.start').click(function() {
+	jQuery(this).css('display','none');
+	jQuery('.chisiamo-video').toggleClass('active');
+});
 </script>

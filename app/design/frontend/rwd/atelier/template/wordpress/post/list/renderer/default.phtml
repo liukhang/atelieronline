@@ -15,7 +15,8 @@
 		<?php if ($post->isViewableForVisitor()): ?>
 			<?php if ($featuredImage = $post->getFeaturedImage()): ?>
 				<div class="featured-image left">
-					<a href="<?php echo $post->getPermalink() ?>" title="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"><img src="<?php echo $featuredImage->getFullSizeImage() ?>" alt="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"/></a>
+					<a class="blog_hover_img" href="<?php echo $post->getPermalink() ?>" title="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"><img src="<?php echo $featuredImage->getFullSizeImage() ?>" alt="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"/></a>
+					<a class="blog_hover_list" href="<?php echo $post->getPermalink() ?>"><?php echo __('LEGGI L’ARTICOLO') ?></a>
 				</div>
 			<?php endif; ?>
 			<div class="post_list_right">

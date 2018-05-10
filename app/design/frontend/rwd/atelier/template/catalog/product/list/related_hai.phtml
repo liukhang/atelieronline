@@ -26,6 +26,7 @@
 ?>
 <?php 
 $category_id  = 0;
+$new_category_id  = 0;
 if(Mage::registry('current_category')){
 	$category_id  = Mage::registry('current_category')->getId();
 }else{
@@ -34,22 +35,135 @@ if(Mage::registry('current_category')){
 	$category_id  = $category_ids[count($category_ids)-1];
 	
 }
-$category = Mage::getModel('catalog/category')->load($category_id);
+
+$array1 = array();
+$array1[] = 3;
+$subcategoryCollections1 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(3)->getData('path') . '/%']);
+foreach($subcategoryCollections1 as $subcategoryCollection1){
+	$array1[] = $subcategoryCollection1->getId();
+}
+if(in_array($category_id, $array1)){
+	$new_category_id = 28;
+}
+
+
+//array2
+
+$array2 = array();
+$array2[] = 13;
+$subcategoryCollections2 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(13)->getData('path') . '/%']);
+foreach($subcategoryCollections2 as $subcategoryCollection2){
+	$array2[] = $subcategoryCollection2->getId();
+}
+if(in_array($category_id, $array2)){
+	$new_category_id = 3;
+}
+
+//array3
+
+$array3 = array();
+$array3[] = 17;
+$subcategoryCollections3 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(17)->getData('path') . '/%']);
+foreach($subcategoryCollections3 as $subcategoryCollection3){
+	$array3[] = $subcategoryCollection3->getId();
+}
+if(in_array($category_id, $array3)){
+	$new_category_id = 3;
+}
+
+//array4
+
+$array4 = array();
+$array4[] = 24;
+$subcategoryCollections4 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(24)->getData('path') . '/%']);
+foreach($subcategoryCollections4 as $subcategoryCollection4){
+	$array4[] = $subcategoryCollection4->getId();
+}
+if(in_array($category_id, $array4)){
+	$new_category_id = 3;
+}
+
+//array5
+
+$array5 = array();
+$array5[] = 28;
+$subcategoryCollections5 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(28)->getData('path') . '/%']);
+foreach($subcategoryCollections5 as $subcategoryCollection5){
+	$array5[] = $subcategoryCollection5->getId();
+}
+if(in_array($category_id, $array5)){
+	$new_category_id = 3;
+}
+
+//array6
+
+$array6 = array();
+$array6[] = 61;
+$subcategoryCollections6 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(61)->getData('path') . '/%']);
+foreach($subcategoryCollections6 as $subcategoryCollection6){
+	$array6[] = $subcategoryCollection6->getId();
+}
+if(in_array($category_id, $array6)){
+	$new_category_id = 3;
+}
+
+//array7
+
+$array7 = array();
+$array7[] = 32;
+$subcategoryCollections7 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(32)->getData('path') . '/%']);
+foreach($subcategoryCollections7 as $subcategoryCollection7){
+	$array7[] = $subcategoryCollection7->getId();
+}
+if(in_array($category_id, $array7)){
+	$new_category_id = 28;
+}
+
+//array8
+
+$array8 = array();
+$array8[] = 53;
+$subcategoryCollections8 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(53)->getData('path') . '/%']);
+foreach($subcategoryCollections8 as $subcategoryCollection8){
+	$array8[] = $subcategoryCollection8->getId();
+}
+if(in_array($category_id, $array8)){
+	$new_category_id = 3;
+}
+
+	
+$category = Mage::getModel('catalog/category')->load($new_category_id);
 $productCollection = Mage::getResourceModel('catalog/product_collection')
                                  ->addCategoryFilter($category)
                                  ->addAttributeToFilter('status',1)
                                  ->addAttributeToFilter('visibility',4)
-								 ->setPageSize(9)
+								 ->setPageSize(4)
 								->setCurPage(1);;
 ?>
 
-<?php if(count($productCollection)>1): ?>
+<?php if(count($productCollection)>=1): ?>
 	<div class="related-product">
 		<div class="title-line"> 
-			<h2><?php echo $this->__('Potrebbero interessarti anche') ?></h2>
+			<h2><?php echo $this->__('Completa il tuo prodotto') ?></h2>
 		</div>
 		<div class="category-products">
-			<ul id="related_product_owl" class="products-grid products-grid--max-4-col" id="block-related">
+			<ul id="related_product_owl" class="owl-carousel products-grid products-grid--max-4-col">
 			<?php $i=0; foreach($productCollection as $_item): ?>
 			 	<?php $i++; ?>
 				<?php if($_item->getId() !=Mage::registry('current_product')->getId()){ ?>
@@ -64,7 +178,7 @@ $productCollection = Mage::getResourceModel('catalog/product_collection')
 		                    </div>
 						</a>
 						<div class="product-info">
-							<p class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></p>
+							<h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></h3>
 														
 							<?php echo $this->getPriceHtml($_product, true, '-related') ?>
 							<?php echo $this->getReviewsSummaryHtml($_product) ?>
@@ -116,3 +230,47 @@ $productCollection = Mage::getResourceModel('catalog/product_collection')
     //]]>
     </script>
 <?php endif ?>
+<script type="text/javascript">
+    jQuery('#related_product_owl').owlCarousel({
+        loop: false,
+        navSpeed: 1000,
+        smartSpeed:1000,
+        margin: 40,
+        autoplay:false,
+        nav:true,
+        navText:['<a href="javascript:void(0)"><i class="fas fa-angle-left"></i></a>','<a href="javascript:void(0)"><i class="fas fa-angle-right"></i></a>'],
+        responsiveClass: false,
+        responsive: {
+            0: {
+                items: 1,
+                // autoplay:true,
+                nav: true
+            },
+            361: {
+                items: 2,
+                // autoplay:true,
+                nav: true
+            },
+            641: {
+                items: 2,
+                // autoplay:true,
+                nav: true
+            },
+            768: {
+                items: 3,
+                // nav: true,
+                loop: false,
+                // autoplay:true,
+                margin: 20
+            },
+            1024: {
+                items: 4,
+                nav: true,
+                loop: true,
+                // autoplay:true,
+                dots: false,
+                margin: 20
+            }               
+        }
+    });
+</script>

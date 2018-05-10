@@ -64,7 +64,7 @@ $productCollection = Mage::getResourceModel('catalog/product_collection')
 		                    </div>
 						</a>
 						<div class="product-info">
-							<p class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></p>
+							<h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></h3>
 														
 							<?php echo $this->getPriceHtml($_product, true, '-related') ?>
 							<?php echo $this->getReviewsSummaryHtml($_product) ?>

@@ -39,29 +39,36 @@
 <div class="product-image product-image-zoom">
 
     <div class="product-image-gallery">
-        <img id="image-main"
-             class="gallery-image visible"
-             src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>"
-             alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
-             title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>" />
+        <a id="image-main" class="gallery-image visible" href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" data-lightbox="set"><img class="set-image" src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" alt=""/></a>
 
         <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
             <?php if ($this->isGalleryImageVisible($_image)): ?>
-            <img id="image-<?php echo $i; ?>"
-                 class="gallery-image"
-                 src="<?php echo $this->getGalleryImageUrl($_image); ?>"
-                 data-zoom-image="<?php echo  $this->getGalleryImageUrl($_image); ?>" />
+            <a id="image-<?php echo $i; ?>" class="gallery-image" href="<?php echo $this->getGalleryImageUrl($_image); ?>" data-lightbox="set"><img class="set-image" src="<?php echo $this->getGalleryImageUrl($_image); ?>" alt=""/></a>
             <?php endif; ?>
         <?php $i++; endforeach; ?>
-
-
     </div>
-</div>
 
+
+</div>
 <?php if (count($this->getGalleryImages()) > 0): ?>
-<div class="more-views">
+<div class="more-views desktop">
     <?php /*<h2><?php echo $this->__('More Views') ?></h2>*/ ?>
-    <ul class="product-image-thumbs">
+    <ul class="product-image-thumbs desktop">
+    <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
+        <?php if ($this->isGalleryImageVisible($_image)): ?>
+        <li>
+            <a class="thumb-link" href="#" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>" data-image-index="<?php echo $i; ?>">
+                <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(125); ?>"
+                     width="125" height="125" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" />
+            </a>
+        </li>
+        <?php endif; ?>
+    <?php $i++; endforeach; ?>
+    </ul>
+</div>
+<div class="more-views mobile">
+    <?php /*<h2><?php echo $this->__('More Views') ?></h2>*/ ?>
+    <ul class="product-image-thumbs mobile owl-carousel">
     <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
         <?php if ($this->isGalleryImageVisible($_image)): ?>
         <li>
@@ -77,3 +84,47 @@
 <?php endif; ?>
 
 <?php echo $this->getChildHtml('after'); ?>
+
+<script>
+    jQuery('.product-image-thumbs.desktop').slick({
+        dots: false,
+        vertical: true,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        verticalSwiping: true,
+        nextArrow: '<i class="fas fa-chevron-down"></i>',
+        prevArrow: '<i class="fas fa-chevron-up"></i>'
+    });
+</script>
+<script type="text/javascript">
+    jQuery('.mobile.owl-carousel').owlCarousel({
+        loop: false,
+        navSpeed: 1000,
+        smartSpeed:1000,
+        margin: 10,
+        autoplay:false,
+        nav:true,
+        navText:['<a href="javascript:void(0)"><i class="fas fa-angle-left"></i></a>','<a href="javascript:void(0)"><i class="fas fa-angle-right"></i></a>'],
+        responsiveClass: false,
+        responsive: {
+            0: {
+                items: 3,
+                nav: true,
+                loop: true,
+                // autoplay:true,
+                dots: false,
+                margin: 20
+            },
+            375: {
+                items: 4,
+                // autoplay:true,
+                nav: true
+            },
+            568: {
+                items: 4,
+                // autoplay:true,
+                nav: true
+            },               
+        }
+    });
+</script>

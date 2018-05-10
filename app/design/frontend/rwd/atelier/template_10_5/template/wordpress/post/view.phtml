@@ -1,0 +1,62 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php $post = $this->getPost() ?>
+<?php if ($post): ?>
+	<?php $helper = $this->helper('wordpress') ?>
+	<?php $author = $post->getAuthor() ?>
+
+	<div class="post-view">
+		
+		<?php echo $this->getBeforePostContentHtml() ?>
+		<div class="post-entry entry std<?php if ($post->getFeaturedImage()): ?> post-entry-with-image<?php endif; ?>">
+			<?php if ($post->isViewableForVisitor()): ?>
+				<?php if ($featuredImage = $post->getFeaturedImage()): ?>
+					<div class="featured-image left">
+						<img src="<?php echo $featuredImage->getFullSizeImage() ?>" alt="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"/>
+					</div>
+				<?php endif; ?>
+				
+				<div class="page-title post-title">
+					<span class="post-date when time">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+						<span class="day"><?php echo $post->getPostDate('d'); ?></span>
+						<span class="month"><?php echo $post->getPostDate('M'); ?></span>
+					</span>
+					<h1><?php echo $this->escapeHtml($post->getPostTitle()) ?></h1>
+				</div>
+				<?php echo $post->getPostContent() ?>
+				<p><?php echo __('Per info scriveteci a ') ?><a style="color: #ba3339" href="#"><?php echo __('info@atelieronline.it') ?></a><?php echo __(' o contattateci al numero +39 036 3335406') ?></p>
+				<p><a class="all_new" href="<?php echo Mage::getUrl() ?>blog"><?php echo __('Torna alle news') ?></a></p>
+			<?php else: ?>
+				<?php echo $this->getPasswordProtectHtml() ?>
+			<?php endif; ?>
+		</div>
+		<?php /*		<?php echo $this->getAfterPostContentHtml() ?>
+		<?php echo $this->getCommentsHtml() ?>*/ ?>
+	</div>
+<?php endif; ?>
+<script>
+	jQuery('#image-gallery').lightSlider({
+		    gallery:true,
+		    item:1,
+		    thumbItem:4,
+		    slideMargin: 0,
+		    speed:500,
+		    auto:false,
+		    loop:true,
+		    onSliderLoad: function() {
+		        jQuery('#image-gallery').removeClass('cS-hidden');
+		    }  
+		});
+	jQuery(".addpen").append( '<div class="zoom"><i class="fa fa-search-plus" aria-hidden="true"></i><span><?php echo __('zoom') ?></span></div>' );
+
+	if(jQuery('.blog_view').length) {
+	  jQuery('.featured-image').css("display", "none");
+	}
+</script>

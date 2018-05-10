@@ -52,14 +52,12 @@
                 </div>
                 <?php echo $this->getChildHtml('media') ?>
             </div>
-
             <div class="product-shop">
 				<div class="product-shop-top">
 					<div class="product-name">
-						<span class="h1"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
+						<h1 class="h1"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
 					</div>
 
-					
 					<?php if ($_product->getSku()):?>
 						<div class="product_sku">
 							<p><?php echo $this->__('Codice: ') ?><span><?php echo $_product->getSku(); ?></span></p>
@@ -76,23 +74,21 @@
 <?php /*                    <div class="extra-info">
                         <?php echo $this->getReviewsSummaryHtml($_product, 'default', false)?>
                         
-                    </div>*/ ?>
+                    </div>*/ 
+?>
                     
                     <?php if ($_product->getShortDescription()):?>
                         <div class="short-description">
                             <div class="std">
-                                <?php $getdescription = $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description'); ?>
-                                <?php if (strlen($getdescription) > 180) { ?>
-                                <p class="teaser"><?php echo  substr($getdescription, 0, 180); ?>
-                                <span class="complete"><?php echo  substr($getdescription, 181); ?></span>
-                                <span class="more"><?php echo __('Vedi dettagli') ?></span>
-                                <span class="less">less...</span>
-                                </p>
-                                <?php } ?>
-                                
+                                <?php echo $getdescription = $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description'); ?>
+                                <span class="more"><?php echo __('Vedi dettagli') ?></span>                                
                             </div>
                         </div>
                     <?php endif;?>
+                    
+                    <div class="spedizione">
+                        <strong><?php echo __('Spedizione: ') ?></strong><span><?php echo __('4/5 giorni lavorative') ?></span>
+                    </div>
 
 					<?php echo $this->getChildHtml('alert_urls') ?>
 
@@ -101,11 +97,9 @@
                 <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                     <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
                 <?php endif;?>
-
 				<div class="add-to-cart-wrapper">
 					<?php echo $this->getChildHtml('product_type_data') ?>
 					<?php echo $this->getChildHtml('extrahint') ?>
-
 					<?php if (!$this->hasOptions()):?>
 						<div class="add-to-box">
 							<?php if($_product->isSaleable()): ?>
@@ -115,16 +109,17 @@
 								<?php endif; ?>
 							<?php endif; ?>
 							<?php /*<?php echo $this->getChildHtml('addto') ?>*/ ?>
-							
 						</div>
 					<?php echo $this->getChildHtml('extra_buttons') ?>
 					<?php elseif (!$_product->isSaleable()): ?>
 						<div class="add-to-box">
 							<?php echo $this->getChildHtml('addto') ?>
-							
 						</div>
 					<?php endif; ?>
 				</div>
+                <div class="richiedi">
+                    <span><i class="fas fa-info"></i><strong><?php echo __('Non hai trovato il prodotto che stai cercando?  ') ?></strong>Richiedi informazioni</span>
+                </div>
 			</div>
             <div class="clearer"></div>
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
@@ -187,7 +182,7 @@
 	<?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('block_tab_product_view')->toHtml(); ?>
 
 
-<div class="box_product_infor">
+<div class="box_product_infor one">
 <?php echo $this->getChildHtml('related_products') ?>
 </div>
 <div class="box_product_infor">
@@ -220,14 +215,13 @@
     <?php echo $this->getLayout()->createBlock('core/template')->setTemplate('contacts/form-product.phtml')->toHtml(); ?>
 </div>
 <script>
-    jQuery(".more").on('click', function(){
-        jQuery('.complete').toggleClass('active');
-        jQuery('.less').css("display", "inline");
-        jQuery(this).css("display", "none");
+    jQuery('.more').click(function() {
+        jQuery('html, body').animate({
+            scrollTop: jQuery('.information').offset().top
+        }, 1000);
     });
-    jQuery(".less").on('click', function(){
-        jQuery('.complete').toggleClass('active');
-        jQuery('.more').css("display", "inline");
-        jQuery(this).css("display", "none");
-    });
+    
+    
 </script>
+
+
