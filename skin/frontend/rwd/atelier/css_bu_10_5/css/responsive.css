@@ -256,23 +256,23 @@
 	}
 	#header-account a:hover{
 		color: #ffffff;
-	    -webkit-transition: all 500ms ease;
-	    -moz-transition: all 500ms ease;
-	    -ms-transition: all 500ms ease;
-	    -o-transition: all 500ms ease;
-	    transition: all 500ms ease;
+	    -webkit-transition: all 300ms ease;
+	    -moz-transition: all 300ms ease;
+	    -ms-transition: all 300ms ease;
+	    -o-transition: all 300ms ease;
+	    transition: all 300ms ease;
 	}
 	.nav-primary a.level0 {
 	    padding: 0 20px;
 	}
 	.nav-primary a:hover, .nav-primary li:hover > a {
 	    color: #ba3339;
-	    -webkit-transition: all 500ms ease;
-	    -moz-transition: all 500ms ease;
-	    -ms-transition: all 500ms ease;
-	    -o-transition: all 500ms ease;
-	    transition: all 500ms ease;
-	    text-shadow: 0 0 0 #111, 0 0 0 #111;
+	    -webkit-transition: all 300ms ease;
+	    -moz-transition: all 300ms ease;
+	    -ms-transition: all 300ms ease;
+	    -o-transition: all 300ms ease;
+	    transition: all 300ms ease;
+	    text-shadow: 0 0 0 #ba3339, 0 0 0 #ba3339;
 	}
 	.nav-primary li.level1 ul.level1 {
 	    left: 250px;
@@ -376,6 +376,10 @@
 	.copy-right, .footer-links{
 		width: 100%;
 	}
+	.footer-links{
+		width: 100%;
+		margin-bottom: 30px;
+	}
 	.footer-links a{
 		letter-spacing: 0;
 	}
@@ -400,14 +404,10 @@
 	button.button.btn-checkout{
 		float: right;
 	}
-/*	.product-view .product-shop .product-name .h1, .information h2, .title-line h2, .page-title h1{
-		font-size: 24px;
-	}*/
 	.home-right .banner-one h2, .home-right .banner-two h2{
 		font-size: 28px;
 	}
 	.product-view .product-img-box .product-name h1{
-		/*font-size: 24px;*/
 		color: #111111;
 		border: none;
 		letter-spacing: 2px;
@@ -435,14 +435,62 @@
 	    margin-bottom: 20px;
 	}
 	.link-col-2,.link-col-3, .link-col-4{
-		width: 33.33%;
-		position: relative;
+	    width: 100%;
+	    position: relative;
+	    text-align: center;
 	}
 	.link-col-2 ul,.link-col-3 ul, .link-col-4 ul{
 		display: inline-block;
 		padding: 0 40px;
+		width: 100%;
 	}
-
+	.links_1, .links_2, .links_3{
+		width: 100%;
+		padding: 0;
+		display: inline-block;
+	}
+	.links_2 {
+	    margin-bottom: 0;
+	    margin-top: -1px;
+	}
+	.links_3 {
+	    margin-bottom: 0;
+	    margin-top: -1px;
+	}
+	.footer-container {
+	    padding: 0px 15px 30px;
+	}
+	.content_links{
+		padding: 30px 0 20px;
+	}
+	.link-col-4 ul{
+		padding-top: 30px;
+	}
+	.link-col-1 ul {
+	    padding-top: 30px;
+	}
+	h3.footer_links_title{
+		display: block;
+	}
+	h3.footer_links_title:after {
+	    content: '\f107';
+	    cursor: pointer;
+	    position: absolute;
+	    font-family: FontAwesome;
+	    bottom: -17px;
+	    left: 0;
+	    right: 0;
+	    font-size: 24px;
+	    background: #242021;
+	    width: 40px;
+	    color: #ffffff;
+	    margin: 0 auto;
+	    font-weight: 100;
+	    z-index: 9;
+	}
+	.links_1 h3 {
+	    border-top: none;
+	}
 	.product-options-bottom{
 		padding-top: 0;
 	    padding-top: 0;
@@ -559,6 +607,17 @@
 		padding: 0;
 		margin-bottom: 10px;
 	}
+	.wordpress-index-index .col2-left-layout .col-main, .wordpress-term-view .col-main, .wordpress-post-view.is-blog .col2-left-layout .col-main{
+		width: 70%;
+	}
+	.wordpress-index-index .col-left.sidebar, .wordpress-term-view .col-left.sidebar, .wordpress-post-view.is-blog .col-left.sidebar{
+		width: 30%;
+	}
+	.post_list_right, .featured-image.left {
+	    width: 100%;
+	    padding: 0;
+	    margin-bottom: 10px;
+	}
 }
 @media (max-width: 800px) and (min-width: 640px){
 	.col3-fire-set.firecheckout-set{
@@ -576,6 +635,8 @@
 		float: none;
 		width: 100%;
 		margin-bottom: 10px;
+		padding-left: 0px !important;
+    	padding-right: 0px !important;
 	}
 	.chisiamo-video iframe {
 	    height: 300px;
@@ -816,8 +877,28 @@
 	.more-views.mobile{
 		display: inline-block;
 	}
-	.more-views.desktop{
+	.more-views{
 		display: none;
+	}
+	.cart-table .product-cart-actions .qty, .product-cart-price .cart-price .price, .product-cart-total .cart-price .price{
+		font-size: 18px;
+	}
+	td.custom_edit a{
+	    width: 40px;
+	    font-size: 16px;
+	}
+	.product-view .product-img-box .product-name h1{
+	    font-size: 26px;
+	    text-transform: capitalize;
+	    color: #111111;
+	    letter-spacing: 0;
+	    width: 100%;
+	    display: inline-block;
+	    margin-bottom: 10px;
+	    font-weight: 400;
+	}
+	.wordpress-index-index .wp-sidebar, .wordpress-term-view .wp-sidebar{
+		margin-top: 0;
 	}
 }
 @media only screen and (max-width: 767px){
@@ -830,11 +911,16 @@
 	}
 	.link-col-2 ul,.link-col-3 ul, .link-col-4 ul{
 		display: inline-block;
-		padding: 0 20px;
 	}
 	.product-view .product-img-box .product-name h1{
-		font-size: 18px;
-		margin-bottom: 30px;
+	    font-size: 26px;
+	    text-transform: capitalize;
+	    color: #111111;
+	    letter-spacing: 0;
+	    width: 100%;
+	    display: inline-block;
+	    margin-bottom: 10px;
+	    font-weight: 400;
 	}
 	.products-grid .product-info{
 		padding-right: 15px;
@@ -925,24 +1011,21 @@
 		margin-left: 0 !important;
 	}
 }
-@media only screen and (max-width: 600px){
-
-	.link-col-1 ul, .link-col-2 ul, .link-col-3 ul, .link-col-4 ul{
-		display: inline-block;
-		width: 100%;
-		padding: 0 20px;
-	}
-	.link-col-2, .link-col-3, .link-col-4 {
-	    width: 100%;
-	    position: relative;
-	    text-align: center;
-	    margin-bottom: 10px;
-	}
-}
 
 @media only screen and (max-width: 500px){
 	.home-right .banner-one h2, .home_blog h1, .nostri-prodotit h2, .home-slider h2, .home-product h2, .footer-banner h3, .home-right .banner-two h2{
 		font-size: 28px;
+	}
+	.product-slick-mobie h2, .information h2, .title-line h2{
+		font-size: 28px;
+		letter-spacing: 0;
+	}
+	.firecheckout-login-wrapper{
+		font-size: 16px;
+	}
+	.page-title h1{
+		font-size: 28px;
+		letter-spacing: 0;
 	}
 	a.skip-link.skip-nav, .skip-link{
 	    width: 25%;
@@ -1032,5 +1115,24 @@
 		margin-top: 20px;
 		margin-bottom: 10px;
 		font-size: 30px;
+	}
+
+}
+@media only screen and (max-width: 599px){
+	.cart-table .product-cart-image{
+		width: 35%;
+	}
+	.data-table td.custom_edit.last {
+        float: right;
+	    width: 65%;
+	    text-align: left;
+	}
+	.cart-table .product-cart-info, .cart-table td[data-rwd-label]{
+		width: 65%;
+	}
+}
+@media only screen and (min-width: 992px){
+	.content_links, .infor.link-col-1, .link-col-4{
+		display: inline-block !important;
 	}
 }

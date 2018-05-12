@@ -40,7 +40,7 @@ $productCollection = Mage::getResourceModel('catalog/product_collection')
                                  ->addAttributeToFilter('status',1)
                                  ->addAttributeToFilter('visibility',4)
 								 ->setPageSize(9)
-								->setCurPage(1);;
+								->setCurPage(1);
 ?>
 
 <?php if(count($productCollection)>1): ?>
@@ -116,3 +116,47 @@ $productCollection = Mage::getResourceModel('catalog/product_collection')
     //]]>
     </script>
 <?php endif ?>
+<script type="text/javascript">
+    jQuery('#related_product_owl').owlCarousel({
+        loop: false,
+        navSpeed: 1000,
+        smartSpeed:1000,
+        margin: 40,
+        autoplay:false,
+        nav:true,
+        navText:['<a href="javascript:void(0)"><i class="fas fa-angle-left"></i></a>','<a href="javascript:void(0)"><i class="fas fa-angle-right"></i></a>'],
+        responsiveClass: false,
+        responsive: {
+            0: {
+                items: 1,
+                // autoplay:true,
+                nav: true
+            },
+            361: {
+                items: 2,
+                // autoplay:true,
+                nav: true
+            },
+            641: {
+                items: 3,
+                // autoplay:true,
+                nav: true
+            },
+            768: {
+                items: 3,
+                // nav: true,
+                loop: false,
+                // autoplay:true,
+                margin: 20
+            },
+            1024: {
+                items: 4,
+                nav: true,
+                loop: false,
+                // autoplay:true,
+                dots: false,
+                margin: 20
+            }               
+        }
+    });
+</script>
