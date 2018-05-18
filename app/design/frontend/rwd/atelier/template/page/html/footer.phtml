@@ -55,7 +55,7 @@
 	<div class="newsletter-content">
 		<div class="newsletter-close"><i class="fas fa-times"></i></div>
 		<h2><?php echo __('Ottieni il 5% di sconto e scopri i consigli degli esperti.') ?></h2>
-	    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
+	    <form action="<?php echo Mage::getBaseUrl(); ?>newsletter/subscriber/new" method="post" id="newsletter-validate-detail">
 	        <div class="block-content">
 	            <div class="input-box">
 	               <input placeholder="<?php echo __('Inserisci e-mail') ?>" type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="newsletter" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Sign up for our newsletter')) ?>" class="input-text required-entry validate-email" />
@@ -95,9 +95,20 @@
 		</div>
 	</div>
 </div>
-<a href="" class="scroll-to-top" style="bottom: 25px;"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
+<?php /*<a href="" class="scroll-to-top" style="bottom: 25px;"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>*/ ?>
 <div class="copy_right_bottom">
 	<address class="copyright"><a href="https://www.up3up.it/" target="_blank"><?php echo $this->getCopyright() ?></a></address>
+</div>
+
+<div class="footer_checkout" style="display: none;">
+	<div class="footer_checkout_container">
+		<div class="left">
+			<p><strong>Atelier sas</strong> di Massimiliano Giulio Cincinelli & Co - via Lusardi, 13 24040 Calvenzano - (Bergamo) - Italy  |  E-mail: info@atelieronline.it  |   Tel. +39 0363 335406  |  C.F./P.I. 02791880160</p>
+		</div>
+		<div class="right">
+			<address class="copyright"><a href="https://www.up3up.it/" target="_blank"><?php echo $this->getCopyright() ?></a></address>
+		</div>
+	</div>
 </div>
 <script>
 	jQuery(window).scroll(function(){
@@ -219,55 +230,26 @@ jQuery.noConflict();
         jQuery(this).toggleClass('active');
         jQuery(this).next().slideToggle('active');
     });
+	jQuery('.home-slider.owl-carousel').owlCarousel({
+		items: 1,
+		autoplay:true,
+		nav: true,
+		dots: true,
+		loop: true,
+		lazyLoad: true,
+		animateOut: 'fadeOut',
+		animateIn: 'fadeIn',
+		transitionStyle : "fade",
+		slideSpeed : 1000,
+		paginationSpeed : 1000,
+		margin: 10
+	});
 </script>
 
 
 <script type="text/javascript">
 jQuery.noConflict();
 (function($) {
-    $(function() {
-		$('.home-slider.owl-carousel').owlCarousel({
-			items: 1,
-			autoplay:true,
-			nav: true,
-			dots: true,
-			loop: true,
-			lazyLoad: true,
-			animateIn: "fadeInLeft",
-			margin: 10
-		});
-	    var owl = $(".home-slider.owl-carousel");
-	    // add animate.css class(es) to the elements to be animated
-	    function setAnimation(_elem, _InOut) {
-	        // Store all animationend event name in a string.
-	        // cf animate.css documentation
-	        var animationEndEvent =
-	            "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
-
-	        _elem.each(function() {
-	            var $elem = $(this);
-	            var $animationType = "animated " + $elem.data("animation-" + _InOut);
-
-	        $elem.addClass($animationType).one(animationEndEvent, function() {
-	            $elem.removeClass($animationType); // remove animate.css Class at the end of the animations
-	            });
-	        });
-	    }
-
-	    // Fired before current slide change
-	    owl.on("change.owl.carousel", function(event) {
-	        var $currentItem = $(".owl-item", owl).eq(event.item.index);
-	        var $elemsToanim = $currentItem.find("[data-animation-out]");
-	        setAnimation($elemsToanim, "out");
-	    });
-
-	    // Fired after current slide has been changed
-	    owl.on("changed.owl.carousel", function(event) {
-	        var $currentItem = $(".owl-item", owl).eq(event.item.index);
-	        var $elemsToanim = $currentItem.find("[data-animation-in]");
-	        setAnimation($elemsToanim, "in");
-	    });
-    });
 	//CSS3 Animate-it
 	$('.animatedParent').appear();
 	$('.animatedClick').click(function(){
@@ -384,11 +366,13 @@ function playPause() {
     else 
         myVideo.pause(); 
 }
-document.getElementById('myvideo').addEventListener('loadedmetadata', function() {
-  this.currentTime = 1;
-}, false);
 jQuery('.start').click(function() {
 	jQuery(this).css('display','none');
 	jQuery('.chisiamo-video').toggleClass('active');
 });
+</script>
+<script>
+    jQuery('.footer_links_title').on('click', function(){
+        jQuery(this).next().slideToggle();
+    });
 </script>

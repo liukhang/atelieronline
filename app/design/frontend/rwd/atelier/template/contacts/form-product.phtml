@@ -49,7 +49,10 @@
  */
 
 ?>
-
+<?php 
+$current_product = Mage::registry('current_product');
+Mage::getSingleton('core/session')->setProductUrlSession(Mage::helper('core/url')->getCurrentUrl());
+ ?>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
 
 <div class="page-title">
@@ -60,8 +63,8 @@
 
 <div class="contacts_main">
     <div class="contacts-right">
-        <form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post" class="scaffold-form">
-
+        <form action="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>contacts/index/prodcontact" id="contactForm" method="post" class="scaffold-form">
+			<input type='hidden' value='<?php echo $current_product->getId(); ?>' name='prod_id'/>
             <div class="fieldset">
                 <ul class="form-list">
 

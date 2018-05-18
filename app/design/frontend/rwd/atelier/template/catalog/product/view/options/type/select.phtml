@@ -27,7 +27,7 @@
 
 <?php /* @var $this Mage_Catalog_Block_Product_View_Options_Type_Select */ ?>
 <?php $_option = $this->getOption() ?>
-<div class="custom-select nth-<?php echo $i ?>">
+<div class="custom-select <?php if(Mage::registry('current_product')->getAttributeSetId()==12){ echo "full"; } ?>">
 	<dt><label<?php if ($_option->getIsRequire()) echo ' class="required"' ?>><?php if ($_option->getIsRequire()) echo '<em>*</em>' ?><?php echo  $this->escapeHtml($_option->getTitle()) ?>:</label></dt>
 	<dd<?php if ($_option->decoratedIsLast){?> class="last"<?php }?>>
 	    <div class="input-box custom-box custom-opption">

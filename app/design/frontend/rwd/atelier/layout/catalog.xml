@@ -125,6 +125,9 @@ Category layered navigation layout
         <reference name="category_title_top">
             <block type="core/template" name="title-top" template="catalog/category/top.phtml"/>
         </reference>
+		 <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
         <reference name="content">
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
                 <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
@@ -202,11 +205,12 @@ Product view
             <action method="addJs"><script>varien/product.js</script></action>
             <action method="addJs"><script>varien/product_options.js</script></action>
             <action method="addJs"><script>varien/configurable.js</script></action>
-            <action method="addItem"><type>skin_js</type><script>js/lib/elevatezoom/jquery.elevateZoom-3.0.8.min.js</script></action>
+            <!-- <action method="addItem"><type>skin_js</type><script>js/lib/elevatezoom/jquery.elevateZoom-3.0.8.min.js</script></action> -->
 
             <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/><!--<if/><condition>can_load_calendar_js</condition>--></action>
             <action method="addItem"><type>js</type><name>calendar/calendar.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
             <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
+			<action method="addJs"><script>list.min.js</script></action>
         </reference>
         <reference name="content">
             <block type="catalog/product_view" name="product.info" template="catalog/product/view.phtml">

@@ -28,12 +28,12 @@
 $category_id  = 0;
 $new_category_id  = 0;
 if(Mage::registry('current_category')){
-    $category_id  = Mage::registry('current_category')->getId();
+	$category_id  = Mage::registry('current_category')->getId();
 }else{
-    $category_ids = Mage::registry('current_product')->getCategoryIds();
-    
-    $category_id  = $category_ids[count($category_ids)-1];
-    
+	$category_ids = Mage::registry('current_product')->getCategoryIds();
+	
+	$category_id  = $category_ids[count($category_ids)-1];
+	
 }
 
 $array1 = array();
@@ -42,25 +42,25 @@ $subcategoryCollections1 = Mage::getModel('catalog/category')
     ->getCollection()
     ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(3)->getData('path') . '/%']);
 foreach($subcategoryCollections1 as $subcategoryCollection1){
-    $array1[] = $subcategoryCollection1->getId();
+	$array1[] = $subcategoryCollection1->getId();
 }
 if(in_array($category_id, $array1)){
-    $new_category_id = 28;
+	$new_category_id = 28;
 }
 
 
 //array2
 
 $array2 = array();
-$array2[] = 7;
+$array2[] = 13;
 $subcategoryCollections2 = Mage::getModel('catalog/category')
     ->getCollection()
-    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(7)->getData('path') . '/%']);
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(13)->getData('path') . '/%']);
 foreach($subcategoryCollections2 as $subcategoryCollection2){
-    echo $array2[] = $subcategoryCollection2->getId();
+	$array2[] = $subcategoryCollection2->getId();
 }
 if(in_array($category_id, $array2)){
-    $new_category_id = 3;
+	$new_category_id = 3;
 }
 
 //array3
@@ -71,10 +71,10 @@ $subcategoryCollections3 = Mage::getModel('catalog/category')
     ->getCollection()
     ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(17)->getData('path') . '/%']);
 foreach($subcategoryCollections3 as $subcategoryCollection3){
-    $array3[] = $subcategoryCollection3->getId();
+	$array3[] = $subcategoryCollection3->getId();
 }
 if(in_array($category_id, $array3)){
-    $new_category_id = 3;
+	$new_category_id = 3;
 }
 
 //array4
@@ -85,10 +85,10 @@ $subcategoryCollections4 = Mage::getModel('catalog/category')
     ->getCollection()
     ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(24)->getData('path') . '/%']);
 foreach($subcategoryCollections4 as $subcategoryCollection4){
-    $array4[] = $subcategoryCollection4->getId();
+	$array4[] = $subcategoryCollection4->getId();
 }
 if(in_array($category_id, $array4)){
-    $new_category_id = 3;
+	$new_category_id = 3;
 }
 
 //array5
@@ -99,10 +99,10 @@ $subcategoryCollections5 = Mage::getModel('catalog/category')
     ->getCollection()
     ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(28)->getData('path') . '/%']);
 foreach($subcategoryCollections5 as $subcategoryCollection5){
-    $array5[] = $subcategoryCollection5->getId();
+	$array5[] = $subcategoryCollection5->getId();
 }
 if(in_array($category_id, $array5)){
-    $new_category_id = 3;
+	$new_category_id = 3;
 }
 
 //array6
@@ -113,10 +113,10 @@ $subcategoryCollections6 = Mage::getModel('catalog/category')
     ->getCollection()
     ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(61)->getData('path') . '/%']);
 foreach($subcategoryCollections6 as $subcategoryCollection6){
-    $array6[] = $subcategoryCollection6->getId();
+	$array6[] = $subcategoryCollection6->getId();
 }
 if(in_array($category_id, $array6)){
-    $new_category_id = 3;
+	$new_category_id = 3;
 }
 
 //array7
@@ -127,10 +127,10 @@ $subcategoryCollections7 = Mage::getModel('catalog/category')
     ->getCollection()
     ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(32)->getData('path') . '/%']);
 foreach($subcategoryCollections7 as $subcategoryCollection7){
-    $array7[] = $subcategoryCollection7->getId();
+	$array7[] = $subcategoryCollection7->getId();
 }
 if(in_array($category_id, $array7)){
-    $new_category_id = 28;
+	$new_category_id = 28;
 }
 
 //array8
@@ -141,57 +141,57 @@ $subcategoryCollections8 = Mage::getModel('catalog/category')
     ->getCollection()
     ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(53)->getData('path') . '/%']);
 foreach($subcategoryCollections8 as $subcategoryCollection8){
-    $array8[] = $subcategoryCollection8->getId();
+	$array8[] = $subcategoryCollection8->getId();
 }
 if(in_array($category_id, $array8)){
-    $new_category_id = 3;
+	$new_category_id = 3;
 }
 
-echo $new_category_id;
+	
 $category = Mage::getModel('catalog/category')->load($new_category_id);
 $productCollection = Mage::getResourceModel('catalog/product_collection')
                                  ->addCategoryFilter($category)
                                  ->addAttributeToFilter('status',1)
                                  ->addAttributeToFilter('visibility',4)
-                                 ->setPageSize(9)
-                                ->setCurPage(1);
+								 ->setPageSize(4)
+								->setCurPage(1);;
 ?>
 
 <?php if(count($productCollection)>=1): ?>
-    <div class="related-product">
-        <div class="title-line"> 
-            <h2><?php echo $this->__('Completa il tuo prodotto') ?></h2>
-        </div>
-        <div class="category-products">
-            <ul id="related_product_owl_related" class="owl-carousel products-grid products-grid--max-4-col" id="block-related">
-            <?php $i=0; foreach($productCollection as $_item): ?>
-                <?php $i++; ?>
-                <?php if($_item->getId() !=Mage::registry('current_product')->getId()){ ?>
-                <?php $_product = Mage::getModel('catalog/product')->load($_item->getId()); ?>
-                <li class="item">
-                    
-                    <div class="product">
-                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
-                            <div class="img-hover">
-                                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(258,315) ?>" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
-                                <span class="vedi-pr"><?php echo __('Vedi prodotto') ?></span>  
-                            </div>
-                        </a>
-                        <div class="product-info">
-                            <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></h3>
-                                                        
-                            <?php echo $this->getPriceHtml($_product, true, '-related') ?>
-                            <?php echo $this->getReviewsSummaryHtml($_product) ?>
-                        </div>
-                    </div>
-                    
-                </li>
-                <?php if($i==9){ break; } ?>
-                <?php } ?>
-            <?php endforeach ?>
-            </ul>
-        </div>
-    </div>
+	<div class="related-product">
+		<div class="title-line"> 
+			<h2><?php echo $this->__('Completa il tuo prodotto') ?></h2>
+		</div>
+		<div class="category-products">
+			<ul id="related_product_owl_related" class="owl-carousel products-grid products-grid--max-4-col" id="block-related">
+			<?php $i=0; foreach($productCollection as $_item): ?>
+			 	<?php $i++; ?>
+				<?php if($_item->getId() !=Mage::registry('current_product')->getId()){ ?>
+				<?php $_product = Mage::getModel('catalog/product')->load($_item->getId()); ?>
+				<li class="item">
+					
+					<div class="product">
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
+							<div class="img-hover">
+								<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(258,315) ?>" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
+								<span class="vedi-pr"><?php echo __('Vedi prodotto') ?></span>  
+		                    </div>
+						</a>
+						<div class="product-info">
+							<h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></h3>
+														
+							<?php echo $this->getPriceHtml($_product, true, '-related') ?>
+							<?php echo $this->getReviewsSummaryHtml($_product) ?>
+						</div>
+					</div>
+					
+				</li>
+				<?php if($i==4){ break; } ?>
+				<?php } ?>
+			<?php endforeach ?>
+			</ul>
+		</div>
+	</div>
         <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
     <script type="text/javascript">
     //<![CDATA[

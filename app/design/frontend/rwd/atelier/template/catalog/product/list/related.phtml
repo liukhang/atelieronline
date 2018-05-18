@@ -34,14 +34,13 @@ if(Mage::registry('current_category')){
 	$category_id  = $category_ids[count($category_ids)-1];
 	
 }
-echo $category_id;
 $category = Mage::getModel('catalog/category')->load($category_id);
 $productCollection = Mage::getResourceModel('catalog/product_collection')
                                  ->addCategoryFilter($category)
                                  ->addAttributeToFilter('status',1)
                                  ->addAttributeToFilter('visibility',4)
 								 ->setPageSize(9)
-								->setCurPage(1);
+								->setCurPage(1);;
 ?>
 
 <?php if(count($productCollection)>1): ?>

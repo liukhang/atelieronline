@@ -31,7 +31,7 @@
     <div class="atelier-checkout-text">
         <textarea id="atelier-checkout-textarea" class="atelier-checkout-textarea" name="post-text" cols="" rows="" tabindex="" data-min-length="" placeholder="<?php echo __('Inserisci commenti') ?>"></textarea>
         <div class="bottom-icon-shop">
-            <span><strong><i class="fa fa-shopping-cart" aria-hidden="true"></i>Hai dimenticato un articolo? </strong>Modifica il tuo carrello</span>
+            <span><strong><i class="fa fa-shopping-cart" aria-hidden="true"></i>Hai dimenticato un articolo? </strong><a href="<?php echo $this->getUrl('checkout/cart'); ?>">Modifica il tuo carrello</a></span>
         </div>
         <div class="sulla-policy">
             <input class="required-entry" name="policy" type="checkbox">

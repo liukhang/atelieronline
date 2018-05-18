@@ -55,14 +55,17 @@
                     </a>
                 <?php endif; ?>
             </h3>
+<?php /*
             <span class="formato">formato 50x70 cm</span>
             <?php 
                 $_product = Mage::getModel('catalog/product')->load($_item->getProductId());
              ?>
             <span class="formato">erientamento verticale</span>
+*/ ?>
 
             <?php if ($_options = $this->getOptionList()):?>
-            <dl class="item-options">
+            <a class="review_checkout_click" href="javascript:void(0)">Vedi dettagli</a>
+            <dl class="item-options" style="display: none;">
                 <?php foreach ($_options as $_option) : ?>
                 <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
                 <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
@@ -335,3 +338,8 @@
     <?php endif; ?>
 
 </tr>
+<script>
+    jQuery('.review_checkout_click').on('click', function(){
+        jQuery(this).next().slideToggle();
+    });
+</script>

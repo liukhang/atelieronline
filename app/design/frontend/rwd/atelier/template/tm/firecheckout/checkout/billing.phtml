@@ -109,13 +109,15 @@
             <fieldset>
                 <input type="hidden" name="billing[address_id]" value="<?php echo $_address->getId() ?>" id="billing:address_id" />
                 <ul>
-					<li class="wide">
-						<div class="input-box">
-							<div class="input-box">
-								<input type="text" placeholder="<?php echo $this->__('Tax number*') ?>" name="billing[tax_number]" value="<?php echo $this->htmlEscape($this->getAddress()->getTaxNumber()) ?>" title="<?php echo $this->__('Tax number') ?>" id="billing:tax_number" class="input-text required-entry" />
-							</div>
-						</div>
-					</li>
+<?php /*
+                    <li class="wide">
+                        <div class="input-box">
+                            <div class="input-box">
+                                <input type="text" placeholder="<?php echo $this->__('Tax number*') ?>" name="billing[tax_number]" value="<?php echo $this->htmlEscape($this->getAddress()->getTaxNumber()) ?>" title="<?php echo $this->__('Tax number') ?>" id="billing:tax_number" class="input-text required-entry" />
+                            </div>
+                        </div>
+                    </li>
+*/ ?>
                     <?php foreach (Mage::helper('firecheckout/address')->getSortedFields() as $row) : ?>
                         <?php
                             $countVisible          = 0;

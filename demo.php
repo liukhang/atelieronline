@@ -5,15 +5,15 @@ try {
 		'host' => 'localhost',
 		'username' => 'root',
 		'password' => '',
-		'db_name' => 'test',
+		'db_name' => 'm1_m19_atelier',
 	));
 	// dump the database to plain text file
-	$world_dumper->dump('test.sql');
+	$world_dumper->dump('m1.9-cadorwine.sql');
 	$wp_dumper = Shuttle_Dumper::create(array(
 		'host' => 'localhost',
 		'username' => 'root',
 		'password' => '',
-		'db_name' => 'test',
+		'db_name' => 'm1_m19_atelier',
 	));
 
 } catch(Shuttle_Exception $e) {

@@ -25,11 +25,8 @@
 				<div class="page-title post-title">
 					<span class="post-date when time">
 						<i class="fa fa-calendar" aria-hidden="true"></i>
-						<?php $string = $post->getPostDate();
-						$timestamp = strtotime($string);
-						 ?>
-						<span class="day"><?php echo date("d", $timestamp); ?></span>
-						<span class="month"><?php echo date("M", $timestamp); ?></span>
+						<span class="day"><?php echo $post->getPostDate('d'); ?></span>
+						<span class="month"><?php echo $post->getPostDate('M'); ?></span>
 					</span>
 					<h1><?php echo $this->escapeHtml($post->getPostTitle()) ?></h1>
 				</div>

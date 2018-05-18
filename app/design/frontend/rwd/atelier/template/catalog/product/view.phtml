@@ -37,13 +37,14 @@
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<form action="<?php echo $this->getSubmitUrl($_product, array('_secure' => $this->_isSecure())) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+            <?php echo $this->getBlockHtml('formkey') ?>
 <div class="product-view">
     <div class="product-essential">
-        <form action="<?php echo $this->getSubmitUrl($_product, array('_secure' => $this->_isSecure())) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
-            <?php echo $this->getBlockHtml('formkey') ?>
             <div class="no-display">
                 <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
                 <input type="hidden" name="related_product" id="related-products-field" value="" />
+                <input type="hidden" name="custom_price_math" id="custom_price_math" value="<?php echo $_product->getFinalPrice(); ?>" />
             </div>
 
             <div class="product-img-box">
@@ -64,12 +65,23 @@
 						</div>
 					<?php endif;?>
 
-					<div class="price-info">
-						<?php echo $this->getPriceHtml($_product); ?>
-						<?php echo $this->getChildHtml('bundle_prices') ?>
-						<?php echo $this->getTierPriceHtml() ?>						
-						
-					</div>
+
+<?php if($_product->getAttributeSetId() == "10" || $_product->getAttributeSetId() == "12" || $_product->getAttributeSetId() == "14") : ?>
+        <div class="price-info" style="display: none;">
+            <?php echo $this->getPriceHtml($_product); ?>
+            <?php echo $this->getChildHtml('bundle_prices') ?>
+            <?php echo $this->getTierPriceHtml() ?>                     
+        </div>
+        <span class="compila"><?php echo __('Compila i campi sottostanti per calcolare il prezzo') ?></span>
+    <?php else : ?>
+        <div class="price-info">
+            <?php echo $this->getPriceHtml($_product); ?>
+            <?php echo $this->getChildHtml('bundle_prices') ?>
+            <?php echo $this->getTierPriceHtml() ?>                     
+            
+        </div>
+<?php endif;?>
+
 		
 <?php /*                    <div class="extra-info">
                         <?php echo $this->getReviewsSummaryHtml($_product, 'default', false)?>
@@ -87,7 +99,13 @@
                     <?php endif;?>
                     
                     <div class="spedizione">
-                        <strong><?php echo __('Spedizione: ') ?></strong><span><?php echo __('4/5 giorni lavorative') ?></span>
+                        <strong><?php echo __('Spedizione: ') ?></strong>
+						<?php if($_product->getData('at_tempi_spedizione')!=''){ ?>
+							<span><?php echo $_product->getData('at_tempi_spedizione') ?></span>
+						<?php }else{ ?>
+							<span><?php echo $this->__('4/5 giorni lavorativi') ?></span>
+						<?php } ?>
+						
                     </div>
 
 					<?php echo $this->getChildHtml('alert_urls') ?>
@@ -98,34 +116,41 @@
                     <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
                 <?php endif;?>
 				<div class="add-to-cart-wrapper">
-					<?php echo $this->getChildHtml('product_type_data') ?>
+					<?php /*echo $this->getChildHtml('product_type_data')*/ ?>
 					<?php echo $this->getChildHtml('extrahint') ?>
-					<?php if (!$this->hasOptions()):?>
-						<div class="add-to-box">
-							<?php if($_product->isSaleable()): ?>
-								<?php echo $this->getChildHtml('addtocart') ?>
-								<?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
-									<span class="or"><?php echo $this->__('OR') ?></span>
-								<?php endif; ?>
-							<?php endif; ?>
-							<?php /*<?php echo $this->getChildHtml('addto') ?>*/ ?>
-						</div>
-					<?php echo $this->getChildHtml('extra_buttons') ?>
-					<?php elseif (!$_product->isSaleable()): ?>
-						<div class="add-to-box">
-							<?php echo $this->getChildHtml('addto') ?>
-						</div>
-					<?php endif; ?>
+                    <?php if($_product->isGrouped()): ?>
+                        <a class="grouped_button" href="javascript:void(0)"><?php echo __('VEDI COMBINAZIONI') ?>  <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
+                    <?php else : ?>
+                        <?php if (!$this->hasOptions()):?>
+                            <div class="add-to-box">
+                                <?php if($_product->isSaleable()): ?>
+                                    <?php echo $this->getChildHtml('addtocart') ?>
+                                    <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                                        <span class="or"><?php echo $this->__('OR') ?></span>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                                <?php /*<?php echo $this->getChildHtml('addto') ?>*/ ?>
+                            </div>
+                        <?php echo $this->getChildHtml('extra_buttons') ?>
+                        <?php elseif (!$_product->isSaleable()): ?>
+                            <div class="add-to-box">
+                                <?php echo $this->getChildHtml('addto') ?>
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
 				</div>
+				<div class="richiedi math_error" style="display:none">
+                    <span><i class="fas fa-info"></i><strong><?php echo __('Il prezzo del prodotto non è calcolabile, per un preventivo contattaci') ?></strong></span>
+                </div>
                 <div class="richiedi">
-                    <span><i class="fas fa-info"></i><strong><?php echo __('Non hai trovato il prodotto che stai cercando?  ') ?></strong>Richiedi informazioni</span>
+                    <span><i class="fas fa-info"></i><strong><?php echo __('Non hai trovato il prodotto che stai cercando?  ') ?></strong><?php echo $this->__('Richiedi informazioni'); ?></span>
                 </div>
 			</div>
             <div class="clearer"></div>
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                 <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
             <?php endif;?>
-        </form>
+        
         <script type="text/javascript">
         //<![CDATA[
             var productAddToCartForm = new VarienForm('product_addtocart_form');
@@ -178,9 +203,32 @@
         //]]>
         </script>
     </div>
-	
+     <?php if($_product->isGrouped()): ?>
+    <div class="pr_group">
+    <?php echo $this->getChildHtml('product_type_data') ?>
+   
+        <?php if (!$this->hasOptions()):?>
+            <div class="add-to-box pr_grouped">
+                <?php if($_product->isSaleable()): ?>
+                    <?php echo $this->getChildHtml('addtocart') ?>
+                    <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                        <span class="or"><?php echo $this->__('OR') ?></span>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php /*<?php echo $this->getChildHtml('addto') ?>*/ ?>
+            </div>
+        <?php echo $this->getChildHtml('extra_buttons') ?>
+        <?php elseif (!$_product->isSaleable()): ?>
+            <div class="add-to-box">
+                <?php echo $this->getChildHtml('addto') ?>
+            </div>
+        <?php endif; ?>
+    
+    </div>
+    <?php endif; ?>
+</div>
+	</form>
 	<?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('block_tab_product_view')->toHtml(); ?>
-
 
 <div class="box_product_infor one">
 <?php echo $this->getChildHtml('related_products') ?>
@@ -190,25 +238,33 @@
 </div>
 </div>
 <div class="information">
-    <h2>Ulteriorio informazioni</h2>
+    <h2><?php echo __('Ulteriorio informazioni') ?></h2>
     <div class="infor-left">
-        <p><strong>Lorem Ipsum</strong><br>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-        <p><strong>Lorem Ipsum:</strong><br>
-            <span><i class="fas fa-chevron-right"></i>It is a long established fact that a reader will be</span>
-            <span><i class="fas fa-chevron-right"></i>It is a long established fact that a reader will be</span>
-            <span><i class="fas fa-chevron-right"></i>It is a long established fact that a reader will be</span>
-            <span><i class="fas fa-chevron-right"></i>It is a long established fact that a reader will be</span>
-            <span><i class="fas fa-chevron-right"></i>It is a long established fact that a reader will be</span>           
+        <p><strong><?php echo $_product->getResource()->getAttribute('description')->getStoreLabel() ?></strong><br>
+        <?php echo $_product->getDescription() ?></p>
+        <p><strong><?php echo $_product->getResource()->getAttribute('at_materiali_inclusi')->getStoreLabel() ?></strong><br>
+			<?php echo $_product->getData('at_materiali_inclusi') ?></p>
+            <div style='display:none'><span><i class="fas fa-chevron-right"></i>It is a long established fact that a reader will be</span></div>
+                     
         </p>
     </div>
-    <div class="infor-right">
-        <p><strong>Lorem Ipsum:</strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-        <p><strong>Lorem Ipsum:</strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-        <p><strong>Lorem Ipsum:</strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-        <p><strong>Lorem Ipsum:</strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-        <p><strong>Lorem Ipsum:</strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-    </div>
+	<?php if( $_product->getTypeId() == 'grouped' ){ ?>
+		<div class="infor-right">
+			<p><strong><?php echo $_product->getResource()->getAttribute('at_formato')->getStoreLabel() ?> : </strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+			<p><strong><?php echo $_product->getResource()->getAttribute('at_dimensioni_profilo')->getStoreLabel() ?> : </strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+			<p><strong><?php echo $_product->getResource()->getAttribute('at_materiale')->getStoreLabel() ?> : </strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+			<p><strong><?php echo $_product->getResource()->getAttribute('at_utilizzo')->getStoreLabel() ?> : </strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+			<p><strong>Lorem Ipsum : </strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+		</div>
+	<?php }else{ ?>
+		<div class="infor-right">
+			<p><strong><?php echo $_product->getResource()->getAttribute('at_formato')->getStoreLabel() ?> : </strong><?php echo $_product->getAttributeText('at_formato'); ?></p>
+			<p><strong><?php echo $_product->getResource()->getAttribute('at_dimensioni_profilo')->getStoreLabel() ?> : </strong><?php echo $_product->getAttributeText('at_dimensioni_profilo'); ?></p>
+			<p><strong><?php echo $_product->getResource()->getAttribute('at_materiale')->getStoreLabel() ?> : </strong><?php echo $_product->getAttributeText('at_materiale'); ?></p>
+			<p><strong><?php echo $_product->getResource()->getAttribute('at_utilizzo')->getStoreLabel() ?> : </strong><?php echo $_product->getAttributeText('at_utilizzo'); ?></p>
+			<p><strong>Lorem Ipsum : </strong>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+		</div>
+    <?php } ?>
 </div>
 
 <div class="form-product">
@@ -217,11 +273,20 @@
 <script>
     jQuery('.more').click(function() {
         jQuery('html, body').animate({
-            scrollTop: jQuery('.information').offset().top
+            scrollTop: (jQuery('.information').offset().top - 150)
         }, 1000);
     });
-    
-    
+    jQuery('.richiedi').click(function() {
+        jQuery('html, body').animate({
+            scrollTop: (jQuery('.form-product').offset().top - 200)
+        }, 1000);
+    });
+    jQuery('.grouped_button').click(function() {
+        jQuery('html, body').animate({
+            scrollTop: (jQuery('.pr_group').offset().top - 200)
+        }, 1000);
+    });
+    jQuery("#configurable_swatch_at_colore").prev().css("display", "none");
 </script>
 
 

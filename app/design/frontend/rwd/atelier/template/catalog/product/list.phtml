@@ -39,7 +39,6 @@
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
-
 <div class="category-products">
     <?php /* <?php echo $this->getToolbarHtml() ?> */ ?>
     <?php // List mode ?>
@@ -138,15 +137,18 @@
                 <div class="product-info">
                     <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h3>
 
-
 <?php 
-    echo $_product->getAttributeSetId();
-    if($_product->getAttributeSetId() == "3" || $_product->getAttributeSetId() == "12" || $_product->getAttributeSetId() == "14"){
+    
+    if($_product->getAttributeSetId() == "10" || $_product->getAttributeSetId() == "12" || $_product->getAttributeSetId() == "14"){
        
     }else{
         echo $this->getPriceHtml($_product, true);
     }
 ?>
+
+
+
+                    
 
 <?php /*
                     <?php
@@ -205,44 +207,4 @@ if ($this->getChild('after')) {
 ?>
 
 
-<?php /*
-<?php $CurrentCategoryID = Mage::registry('current_category')->getId();?>
-
-<?php if( $CurrentCategoryID == 3){ ?>
-
-<?php $category = Mage::getModel('catalog/category')->load($CurrentCategoryID); ?>
-
-<div class="cador-category">
-
-    <p><?php echo $category->getDescription(); ?></p>
-
-</div>
-
-<?php } ?>
-*/ ?>
-<div class="category-bottom">
-    <div class="cate-left">
-        <p>
-            Atelier è un laboratorio artigianale con un’esperienza trentennale nella creazione di <strong>cornici su misura</strong>. Oltre a <strong>realizzare cornici</strong> di qualsiasi materiale e in qualunque misura, Atelier vende le sue <strong>cornici online</strong> offrendoti la possibilità di acquistare - in modo facile e veloce - un prodotto di qualità artigianale e personalizzato in base alle tue esigenze. La vasta gamma di <strong>cornici su misura online</strong> di Atelier include prodotti dagli stili più diversi, in grado di incontrare i gusti di tutti: sono disponibili, infatti, <strong>cornici moderne</strong> in moltissime varianti di colore ma anche <strong>cornici classiche</strong> che con le loro finiture ricordano ricercati modelli di <strong>cornice antica</strong>. Atelier si occupa di <strong>realizzazione di cornici</strong> in svariati materiali, dalle tradizionali <strong>cornici di legno</strong> alle <strong>cornici in metallo</strong> o rivestite in alluminio anodizzato. Tante anche le forme in cui il laboratorio realizza le <strong>cornici su misura</strong>: in questa sezione sono disponibili le classiche <strong>cornici per quadri</strong> e <strong>cornici per diplomi</strong> ma anche piccole <strong>cornici portafoto</strong>; si possono trovare anche <strong>cornici particolari</strong> come quelle tonde e ovali, <strong>cornici ventagliere</strong>, <strong>cornici per maglie da calcio</strong> e le innovative <strong>cornici nascondi cassaforte</strong>. Hai particolari esigenze e vuoi realizzare un prodotto unico? Atelier, oltre alla vendita di <strong>cornici per quadri standard</strong>, è in grado di realizzare splendide <strong>cornici personalizzate</strong>, curate nei dettagli e in grado di soddisfare ogni tua necessità. Contattaci subito: ti offriremo la consulenza di cui hai bisogno e realizzeremo la tua <strong>cornice su misura</strong>!
-            Ciò che differenzia le <strong>cornici per quadri</strong> di Atelier da quelle più comuni disponibili in commercio sono gli angoli chiusi. Si tratta, infatti, di <strong>cornici artigianali</strong> qualitativamente superiori rispetto a quelle ad angolo aperto, caratterizzate da pregiate finiture che le rendono veri e propri pezzi unici. Atelier offre un’ampia gamma <strong>cornici su misura</strong>, personalizzabili nel materiale e nelle grandezze in base alle specifiche necessità. L’assortimento comprende:
-        </p>
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici moderne</strong> laccate lucide e opache, pastellate, oro o argento, in alluminio e cromate, declinate in tante colorazioni. Le <strong>cornici per quadri moderni</strong> vengono spedite con un kit per l’inserimento del quadro.</span>
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici in metallo</strong> realizzate su misura in alluminio anodizzato ma anche <strong>cornici di legno</strong> rivestite, con finitura cromata o con pellicole a effetto metallico e cromato. La qualità e la durata di queste <strong>cornici artigianali</strong> sono garantite dal marchio Nielsen.</span>
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici classiche</strong> con sagome che richiamano le finiture, le patinature e lo stile delle <strong>cornici antiche</strong>. Le <strong>cornici classiche</strong> possono essere dorate, argentate o colorate e sono adatte per quadri e arredi in stile antico ma anche per opere moderne.</span>
-    </div>
-    <div class="cate-right">
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici antiche</strong> autentiche e garantite con certificato, tutte in ottimo stato di conservazione,con doratura in oro zecchino originale. Ogni <strong>cornice antica</strong> viene spedita in assoluta sicurezza, con un imballaggio apposito e tramite corriere espresso.</span>
-        <span><strong><i class="fas fa-chevron-right"></i>Copie di cornici</strong>  antiche costruite interamente a mano, con doratura a guazzo e lacche pregiate, rispettando gli incastri e le finiture dei modelli del passato.</span>
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici artigianali</strong> ovali e tonde con finitura oro, noce filo oro, noce, colore e argento, adatte per incorniciare fotografie, stampe e dipinti e disponibili in diverse lunghezze e sagome.</span>
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici per diplomi</strong>, - lauree e attestati, vendute con vetro e disponibili in grandezze standard o su misura. Queste <strong>cornici artigianali</strong> sono adatte anche per licenze e regolamenti che devono essere esposti in luoghi aperti al pubblico.</span>
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici nascondi</strong> cassaforte  a muro e quadri elettrici, facili da installare e comode da aprire e chiudere.</span>
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici artigianali</strong> apribili e teche ideali per esporre medaglie, monete e oggetti di valore.Questi modelli sono dotati di fondo in velluto rosso, graffe per bloccaggio e apertura a cerniera nascosta.</span>
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici su misura</strong> in legno dorato a foglia per contenere i ventagli, fornite di vetro, fondo di cartone vellutato, fondo di chiusura e gancio per appenderle.</span>
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici portafoto</strong> da appoggio su misura con elegante finitura, arricchite da passepartout e fondi particolari.</span>
-        <span><strong><i class="fas fa-chevron-right"></i>Cornici per oggetti 3D</strong> e sports memorabilia.</span>       
-        <p>
-            In abbinamento alle <strong>cornici per quadri</strong> proposte, è possibile acquistare anche il vetro scegliendo tra: Vetro Ultravue 70 antiriflesso, con protezione dai raggi UV al 70%; Vetro Truvue Museumglass antiriflesso, con protezione dai raggi UV al 99%. Non hai trovato il prodotto che stai cercando? Contattaci: con professionalità, competenza e attenzione ai dettagli ci occuperemo della <strong>realizzazione della cornice per quadri</strong> che desideri!
-        </p>
-    </div>
-</div>
 

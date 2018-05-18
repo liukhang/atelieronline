@@ -33,9 +33,143 @@
 /* @var $this Mage_Catalog_Block_Product_List */
 ?>
 <?php
-    $_productCollection=$this->getLoadedProductCollection();
+    $_productCollections=$this->getLoadedProductCollection();
+	
+	$cart = Mage::getModel('checkout/cart')->getQuote();
+	foreach ($cart->getAllItems() as $item) {
+		$firstItemId = $item->getProductId();
+		break;
+	}
     $_helper = $this->helper('catalog/output');
+	
+	
+	$_products = Mage::getModel('catalog/product')->load($firstItemId);
+	$categoryIds = $_products->getCategoryIds();
+	$category_id  = $categoryIds[count($categoryIds)-1];
+	
+	
+	$array1 = array();
+	$array1[] = 3;
+	$subcategoryCollections1 = Mage::getModel('catalog/category')
+		->getCollection()
+		->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(3)->getData('path') . '/%']);
+	foreach($subcategoryCollections1 as $subcategoryCollection1){
+		$array1[] = $subcategoryCollection1->getId();
+	}
+	if(in_array($category_id, $array1)){
+		$new_category_id = 28;
+	}
+
+
+//array2
+
+$array2 = array();
+$array2[] = 13;
+$subcategoryCollections2 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(13)->getData('path') . '/%']);
+foreach($subcategoryCollections2 as $subcategoryCollection2){
+	$array2[] = $subcategoryCollection2->getId();
+}
+if(in_array($category_id, $array2)){
+	$new_category_id = 3;
+}
+
+//array3
+
+$array3 = array();
+$array3[] = 17;
+$subcategoryCollections3 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(17)->getData('path') . '/%']);
+foreach($subcategoryCollections3 as $subcategoryCollection3){
+	$array3[] = $subcategoryCollection3->getId();
+}
+if(in_array($category_id, $array3)){
+	$new_category_id = 3;
+}
+
+//array4
+
+$array4 = array();
+$array4[] = 24;
+$subcategoryCollections4 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(24)->getData('path') . '/%']);
+foreach($subcategoryCollections4 as $subcategoryCollection4){
+	$array4[] = $subcategoryCollection4->getId();
+}
+if(in_array($category_id, $array4)){
+	$new_category_id = 3;
+}
+
+//array5
+
+$array5 = array();
+$array5[] = 28;
+$subcategoryCollections5 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(28)->getData('path') . '/%']);
+foreach($subcategoryCollections5 as $subcategoryCollection5){
+	$array5[] = $subcategoryCollection5->getId();
+}
+if(in_array($category_id, $array5)){
+	$new_category_id = 3;
+}
+
+//array6
+
+$array6 = array();
+$array6[] = 61;
+$subcategoryCollections6 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(61)->getData('path') . '/%']);
+foreach($subcategoryCollections6 as $subcategoryCollection6){
+	$array6[] = $subcategoryCollection6->getId();
+}
+if(in_array($category_id, $array6)){
+	$new_category_id = 3;
+}
+
+//array7
+
+$array7 = array();
+$array7[] = 32;
+$subcategoryCollections7 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(32)->getData('path') . '/%']);
+foreach($subcategoryCollections7 as $subcategoryCollection7){
+	$array7[] = $subcategoryCollection7->getId();
+}
+if(in_array($category_id, $array7)){
+	$new_category_id = 28;
+}
+
+//array8
+
+$array8 = array();
+$array8[] = 53;
+$subcategoryCollections8 = Mage::getModel('catalog/category')
+    ->getCollection()
+    ->addFieldToFilter('path', ['like' => Mage::getModel('catalog/category')->load(53)->getData('path') . '/%']);
+foreach($subcategoryCollections8 as $subcategoryCollection8){
+	$array8[] = $subcategoryCollection8->getId();
+}
+if(in_array($category_id, $array8)){
+	$new_category_id = 3;
+}
+
+
+	
+$category = Mage::getModel('catalog/category')->load($new_category_id);
+$_productCollection = Mage::getResourceModel('catalog/product_collection')
+                                 ->addCategoryFilter($category)
+                                 ->addAttributeToFilter('status',1)
+                                 ->addAttributeToFilter('visibility',4)
+								 ->setPageSize(4)
+								->setCurPage(1);
 ?>
+	
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
@@ -45,6 +179,7 @@
     <?php $_columnCount = $this->getColumnCount(); ?>
     <ul id="product-slick-slide" class="product-slick-slide products-grid products-grid--max-<?php echo $_columnCount; ?>-col">
         <?php $i=0; foreach ($_productCollection as $_product): ?>
+		<?php $_product = Mage::getModel('catalog/product')->load($_product->getId()); ?>
             <?php $i++; ?>
             <?php /*if ($i++%$_columnCount==0): ?>
             <?php endif*/ ?>
