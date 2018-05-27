@@ -3,17 +3,17 @@ include ('dumper.php');
 try {
 	$world_dumper = Shuttle_Dumper::create(array(
 		'host' => 'localhost',
-		'username' => 'root',
-		'password' => '',
-		'db_name' => 'm1_m19_atelier',
+		'username' => 'user_atelier_and',
+		'password' => 'bAnHi%z4mvE#',
+		'db_name' => 'demo_cadorwine_it_magento',
 	));
 	// dump the database to plain text file
-	$world_dumper->dump('m1.9-cadorwine.sql');
+	$world_dumper->dump('demo_cadorwine_it_magento.sql');
 	$wp_dumper = Shuttle_Dumper::create(array(
 		'host' => 'localhost',
-		'username' => 'root',
-		'password' => '',
-		'db_name' => 'm1_m19_atelier',
+		'username' => 'user_atelier_and',
+		'password' => 'bAnHi%z4mvE#',
+		'db_name' => 'demo_cadorwine_it_magento',
 	));
 
 } catch(Shuttle_Exception $e) {

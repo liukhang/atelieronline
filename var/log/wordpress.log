@@ -1,4 +1,4 @@
-2018-05-17T04:00:42+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
+2018-05-27T02:43:52+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
 Stack trace:
 #0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
 #1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
@@ -8,7 +8,7 @@ Stack trace:
 #5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
 #6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
 #7 {main}
-2018-05-17T04:00:53+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
+2018-05-27T02:44:34+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
 Stack trace:
 #0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
 #1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
@@ -18,7 +18,7 @@ Stack trace:
 #5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
 #6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
 #7 {main}
-2018-05-17T04:01:03+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
+2018-05-27T02:44:53+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
 Stack trace:
 #0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
 #1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
@@ -28,7 +28,7 @@ Stack trace:
 #5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
 #6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
 #7 {main}
-2018-05-17T04:01:15+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
+2018-05-27T02:45:06+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
 Stack trace:
 #0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
 #1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
@@ -38,7 +38,7 @@ Stack trace:
 #5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
 #6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
 #7 {main}
-2018-05-17T04:01:55+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
+2018-05-27T02:45:09+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
 Stack trace:
 #0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
 #1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
@@ -48,187 +48,7 @@ Stack trace:
 #5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
 #6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
 #7 {main}
-2018-05-17T04:02:03+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T04:02:32+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T04:02:34+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T04:02:54+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T04:03:07+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T07:52:24+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T07:57:11+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T07:57:20+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T07:57:32+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T10:55:53+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T10:57:05+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T11:00:06+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T11:01:38+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T11:01:46+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T11:01:52+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-17T11:02:04+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-18T08:16:37+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-18T08:17:09+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
-Stack trace:
-#0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
-#1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
-#2 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Router\Standard.php(254): Mage_Core_Controller_Varien_Action->dispatch('checkVersion')
-#3 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Front.php(172): Mage_Core_Controller_Varien_Router_Standard->match(Object(Mage_Core_Controller_Request_Http))
-#4 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Model\App.php(365): Mage_Core_Controller_Varien_Front->dispatch()
-#5 H:\xampp\htdocs\m1.9-atelier\app\Mage.php(683): Mage_Core_Model_App->run(Array)
-#6 H:\xampp\htdocs\m1.9-atelier\index.php(83): Mage::run('', 'store')
-#7 {main}
-2018-05-18T08:17:14+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
+2018-05-27T02:45:53+00:00 DEBUG (7): Exception: CURL (60): SSL certificate problem: unable to get local issuer certificate in H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\Helper\System.php:459
 Stack trace:
 #0 H:\xampp\htdocs\m1.9-atelier\app\code\community\Fishpig\Wordpress\controllers\Adminhtml\WordpressController.php(61): Fishpig_Wordpress_Helper_System->makeHttpGetRequest('https://raw.git...')
 #1 H:\xampp\htdocs\m1.9-atelier\app\code\core\Mage\Core\Controller\Varien\Action.php(418): Fishpig_Wordpress_Adminhtml_WordpressController->checkVersionAction()
