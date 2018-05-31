@@ -1040,7 +1040,7 @@ address.copyright {
     font-size: 11px;
     font-weight: 600;
     padding: 10px 0 10px 20px;
-	font-family: "Aria",sans-serif !important;
+    font-family: "Aria",sans-serif !important;
 }
 .copy_right_bottom address.copyright a:hover{
     color: #ba3339;
@@ -1172,7 +1172,7 @@ table#shopping-cart-table{
     text-transform: inherit;
     letter-spacing: 1px;
     color: #444444;
-	font-family: "Poppins",sans-serif;
+    font-family: "Poppins",sans-serif;
 }
 .cart .page-title{
     text-align: center;
@@ -1233,7 +1233,7 @@ a.view_click_qty {
 a.review_checkout_click {
     text-decoration: underline;
     font-size: 13px;
-	font-weight: 300;
+    font-weight: 300;
 }
 .data-table th{
     font-weight: 500;
@@ -1664,7 +1664,7 @@ ul#product-slick-slide i.fas {
     font-size: 16px;
     color: #444444;
     font-weight: 500;
-	font-family: "Poppins",sans-serif;
+    font-family: "Poppins",sans-serif;
 }
 li.item:hover span.vedi-pr{
     opacity: 1;
@@ -2512,17 +2512,33 @@ ul.product-image-thumbs i{
     display: inline-block;
     width: 97%;
 }
+.radiocustom_checkout {
+    display: block;
+    width: calc(100% - 10px);
+    margin: 0 auto;
+}
 .radiocustom-left{
     height: 46px;
     background: #eeeeee;
     width: 49%;
     float: left;
+    margin-bottom: 5px;
+}
+#payment-method #checkout-payment-method-load .sp-methods img.v-middle {
+    width: auto;
+    margin-top: -7px;
+}
+.sp-methods label a {
+    margin-top: 0;
+    float: right;
+    margin-left: 10px;
 }
 .radiocustom-right{
     height: 46px;
     background: #eeeeee;
     width: 49%;
     float: right;
+    margin-bottom: 5px;
 }
 .firecheckout-set .radiocustom-left label, .firecheckout-set .radiocustom-right label{
     font-size: 14px;
@@ -3768,7 +3784,7 @@ li.amshopby-cat a:hover{
     color: #ba3339;
 }
 .footer-banner .owl-carousel .owl-stage-outer, .footer-banner .owl-nav {
-	position: relative;
+    position: relative;
     z-index: 99;
 }
 .footer-banner .owl-theme .owl-nav {
