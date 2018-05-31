@@ -32,7 +32,7 @@
         'telephone' => array(
             'class' => 'input-text',
             'label' => 'Telephone',
-			'placeholder' => 'Telephone'
+            'placeholder' => 'Telephone'
         ),
         'city' => array(
             'class' => 'input-text',
@@ -78,14 +78,14 @@
     }
 ?>
 
-<div id="billing-address" class="firecheckout-section">
+<div id="billing-address diepmmk" class="firecheckout-section">
     <?php if (!$this->canShip() || !Mage::getStoreConfig('firecheckout/general/shipping_address')): ?>
         <div class="block-title"><span><?php echo $this->helper('checkout')->__('Address'); ?></span></div>
     <?php else: ?>
         <div class="block-title"><span><?php echo $this->helper('checkout')->__('Billing Address'); ?></span></div>
     <?php endif; ?>
     <div class="block-content">
-		
+        
         <ul class="form-list">
         <?php if ($this->customerHasAddresses()): ?>
             <li class="wide">
@@ -96,7 +96,7 @@
             </li>
         <?php endif; ?>
         <li id="billing-new-address-form"<?php if ($this->customerHasAddresses()): ?> style="display:none;"<?php endif; ?>>
-            <div class="custom-atelier-radio">
+            <div class="radiocustom_checkout">
                 <div class="radiocustom-left">
                     <label class="checkbox_x checkbox_x--radio"><input type="radio" name="billingradiocustom" class="radiocustom1" value="1" onclick="checkradio(1)"><div class="checkbox_x__indicator"></div></label>
                     <label><?php echo $this->__('Privato') ?></label>
@@ -109,15 +109,7 @@
             <fieldset>
                 <input type="hidden" name="billing[address_id]" value="<?php echo $_address->getId() ?>" id="billing:address_id" />
                 <ul>
-<?php /*
-                    <li class="wide">
-                        <div class="input-box">
-                            <div class="input-box">
-                                <input type="text" placeholder="<?php echo $this->__('Tax number*') ?>" name="billing[tax_number]" value="<?php echo $this->htmlEscape($this->getAddress()->getTaxNumber()) ?>" title="<?php echo $this->__('Tax number') ?>" id="billing:tax_number" class="input-text required-entry" />
-                            </div>
-                        </div>
-                    </li>
-*/ ?>
+                    
                     <?php foreach (Mage::helper('firecheckout/address')->getSortedFields() as $row) : ?>
                         <?php
                             $countVisible          = 0;
@@ -125,7 +117,7 @@
 
                             foreach ($row as $key => $field) { // do not use break in this cycle to fill statuses for all fields
                                 
-								if (!isset($fields[$field])) { // billing address doesn't have all of the fields
+                                if (!isset($fields[$field])) { // billing address doesn't have all of the fields
                                     unset($row[$key]);
                                     continue;
                                 }
@@ -152,7 +144,7 @@
 
                         <li class="<?php echo $isMulticolumn ? 'fields' : 'wide' ?>"<?php echo $countVisible ? '' : ' style="display: none;"' ?>>
                             <?php foreach ($row as $field) : ?>
-								
+                                
                                 <?php $required = ('required' === $status[$field]); ?>
 
                                 <?php if ('name' === $field) : ?>
@@ -230,7 +222,7 @@
                                     <?php endif; ?>
 
                                 <?php endif; ?>
-								<? /* Matteo: tolgo seconda linea indirizzi
+                                <? /* Matteo: tolgo seconda linea indirizzi
                                 <?php if ('street1' === $field) : ?>
                                     <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
                                         </li>
@@ -240,12 +232,28 @@
                                             </div>
                                     <?php endfor ?>
                                 <?php endif; ?>
-										*/?>
+                                        */?>
                             <?php endforeach; ?>
+                            
                         </li>
-						
+                        
+                        
                     <?php endforeach; ?>
-					<p class="text_small">* I campi contrassegnati sono obbligatori</p>
+                    <div class="show-partitaiva">
+                        <li class="wide" style="display:block">
+                            <div class="input-box">
+                                <input type="text" class="input-text vat_id " title="<?php echo $this->__('Numero partita IVA');?>" value="<?php echo $this->htmlEscape($this->getAddress()->getVatId()) ?>" id="billing:vat_id" name="billing[vat_id]" placeholder="<?php echo $this->__('Numero partita IVA');?>">
+                            </div>
+                        </li>
+                    </div>
+                    <li class="wide">
+                        <div class="input-box">
+                            <div class="input-box">
+                                <input type="text" placeholder="<?php echo $this->__('Codice Fiscale') ?>" name="billing[tax_number]" value="<?php echo $this->htmlEscape($this->getAddress()->getTaxNumber()) ?>" title="<?php echo $this->__('Codice Fiscale') ?>" id="billing:tax_number" class="input-text required-entry codice_fiscale" />
+                            </div>
+                        </div>
+                    </li>
+                    <p class="text_small">* I campi contrassegnati sono obbligatori</p>
                     <?php $addressAttributes = $this->getChild('customer_form_' . $_prefix . '_address_user_defined_attributes');?>
                     <?php if ($addressAttributes): ?>
                         <?php $addressAttributes->setEntity($_address)->setEntityType('customer_address');?>
@@ -315,8 +323,8 @@
                 <?php echo $additional; ?>
             </li>
         <?php endif; ?>
-		
-		<?php if ($this->canShip() && Mage::getStoreConfig('firecheckout/general/shipping_address')): ?>
+        
+        <?php if ($this->canShip() && Mage::getStoreConfig('firecheckout/general/shipping_address')): ?>
             <li class="control radio-use-for-shipping">
                 <input type="radio" name="billing[use_for_shipping]" id="billing:use_for_shipping_yes" value="1"<?php if ($this->isUseBillingAddressForShipping() && !Mage::getSingleton('core/session')->getPickupatstore()) {?> checked="checked"<?php }?> title="<?php echo Mage::helper('core')->quoteEscape($this->__('Ship to this address')) ?>" onclick="shipping.setSameAsBilling(true)" class="radio" /><label for="billing:use_for_shipping_yes"><?php echo  $this->__('Ship to this address') ?></label></li>
             <li class="control">
@@ -331,7 +339,7 @@
                 <?php endif; ?>
             <?php endif; ?>
         <?php endif; ?>
-		
+        
         </ul>
     <?php if (!$this->canShip() || !Mage::getStoreConfig('firecheckout/general/shipping_address')): ?>
         <input type="hidden" name="billing[use_for_shipping]" value="1" />
@@ -343,56 +351,61 @@
         var billing = new Billing();
         var billingRegionUpdater = new RegionUpdater('billing:country_id', 'billing:region', 'billing:region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'billing:postcode');
     //]]>
-		/*
-		Validation.add('validate-for-taxnumber','This is a required field.',function(field_value) {
-			var regex = new RegExp(/^[a-z]{6}[0-9]{2}[a-z]{1}[0-9]{2}[a-z]{1}[0-9]{3}[a-z]{1}$/i);
-			if(!field_value.match(regex)){
-				return false;
-			}
-			return true;
-		});
-		*/
-		Validation.add('validate-for-taxnumber','This is a required field.',function(field_value) 
-		{
-			if (!document.getElementById('radiocustom-azienda').checked) 
-			{
-				var regex = new RegExp(/^[a-z]{6}[0-9]{2}[a-z]{1}[0-9]{2}[a-z]{1}[0-9]{3}[a-z]{1}$/i);
-				if(!field_value.match(regex))
-				{
-					return false;
-				}
-				return true;
-			}
-			else
-			{
-				if(!field_value)
-					return false;
-			}
-			return true;
-		});
-		
-		jQuery('.vat_id').parent().parent().hide();
-		jQuery('.companynew').parent().parent().hide();
-		jQuery('.radiocustom1').attr('checked', 'checked');
-		function checkradio(ev){
-			if(jQuery('.radiocustom'+ev).is(':checked')) {
-				if(ev==1){
-					jQuery('.companyreq').removeClass('required');
-					jQuery('.vat_require').removeClass('required');
-					jQuery('.companynew').removeClass('required-entry');
-					jQuery('.vat_id').removeClass('required-entry');
-					jQuery('.vat_id').parent().parent().hide();
-					jQuery('.companynew').parent().parent().hide();
-				}else{
-					jQuery('.companyreq').addClass('required');
-					jQuery('.vat_require').addClass('required');
-					jQuery('.companynew').addClass('required-entry');
-					jQuery('.vat_id').addClass('required-entry');
-					jQuery('.vat_id').parent().parent().show();
-					jQuery('.companynew').parent().parent().show();
-				}
-			}
-		}
+        /*
+        Validation.add('validate-for-taxnumber','This is a required field.',function(field_value) {
+            var regex = new RegExp(/^[a-z]{6}[0-9]{2}[a-z]{1}[0-9]{2}[a-z]{1}[0-9]{3}[a-z]{1}$/i);
+            if(!field_value.match(regex)){
+                return false;
+            }
+            return true;
+        });
+        */
+        Validation.add('validate-for-taxnumber','This is a required field.',function(field_value) 
+        {
+            if (!document.getElementById('radiocustom-azienda').checked) 
+            {
+                var regex = new RegExp(/^[a-z]{6}[0-9]{2}[a-z]{1}[0-9]{2}[a-z]{1}[0-9]{3}[a-z]{1}$/i);
+                if(!field_value.match(regex))
+                {
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                if(!field_value)
+                    return false;
+            }
+            return true;
+        });
+        
+        jQuery('.vat_id').parent().parent().hide();
+        jQuery('.codice_fiscale').parent().parent().show();
+        jQuery('.companynew').parent().parent().hide();
+        jQuery('.radiocustom1').attr('checked', 'checked');
+        function checkradio(ev){
+            if(jQuery('.radiocustom'+ev).is(':checked')) {
+                if(ev==1){
+                    jQuery('.companyreq').removeClass('required');
+                    jQuery('.vat_require').removeClass('required');
+                    jQuery('.companynew').removeClass('required-entry');
+                    jQuery('.vat_id').removeClass('required-entry');
+                    jQuery('.vat_id').parent().parent().hide();
+                    jQuery('.codice_fiscale').addClass('required-entry');
+                    jQuery('.codice_fiscale').parent().parent().show();
+                    jQuery('.companynew').parent().parent().hide();
+                }else{
+                    jQuery('.companyreq').addClass('required');
+                    jQuery('.vat_require').addClass('required');
+                    jQuery('.companynew').addClass('required-entry');
+                    jQuery('.vat_id').addClass('required-entry');
+                    jQuery('.vat_id').parent().parent().show();
+                    jQuery('.codice_fiscale').removeClass('required-entry');
+                    jQuery('.codice_fiscale').parent().parent().hide();
+                    jQuery('.companynew').parent().parent().show();
+                }
+            }
+        }
     </script>
     </div>
 </div>
