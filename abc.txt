@@ -1,2 +1,2 @@
-abc
-333
+add commit push xong bi loi con CONFLICT
+git pull ve sua loi CONFLICT roi coomit lai
