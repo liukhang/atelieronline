@@ -2,7 +2,7 @@
 	.firecheckout-index-index .left {
 	    width: 80%;
 	    float: left;
-	    display: inline-block;
+	    display: inline-block !important;
 	    text-align: left;
 	}
 	.firecheckout-index-index .right {
